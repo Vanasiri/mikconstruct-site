@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Deploy Guide
 
 ## 1) เตรียมเครื่องมือ
@@ -73,3 +74,7 @@ node app.cjs
 * แอปรัน: เปิดโดเมนแล้วเห็นหน้าเว็บ
 * อัปโหลดไฟล์ได้: โฟลเดอร์ `public/uploads` ต้องเขียนได้
 * DB ต่อสำเร็จ: หน้าเว็บไม่ error เรื่องฐานข้อมูล
+=======
+# mikconstruct-site
+website-mikconstruct
+>>>>>>> fce77abcf6edf94b7e2deedefdab6e3f85058b97
