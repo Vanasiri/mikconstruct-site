@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Panel</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-light">
+
+  <!-- Navbar -->
+  <%- include('partials/admin_nav') %>
+
+  <div class="container py-4">
+
+    <!-- 2. เพิ่มโปรเจกต์ใหม่ -->
+    <section class="mb-5">
+      <h2 class="h4 mb-3">➕ เพิ่มโปรเจกต์ใหม่</h2>
+      <form class="row g-3 align-items-end" action="/admin/projects/add" method="POST" enctype="multipart/form-data">
+        <div class="col-md-4">
+          <label class="form-label">ชื่อโปรเจกต์</label>
+          <input type="text" class="form-control" name="name" required />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">หมวดหมู่</label>
+          <input type="text" class="form-control" name="category" required />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">เลือกรูป (ได้หลายรูป แต่ไม่เกิน 50 รูป)</label>
+          <input type="file" class="form-control" name="images" multiple required
+            onchange="if(this.files.length > 50){ alert('แนบได้ไม่เกิน 50 รูป'); this.value = ''; }" />
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary">เพิ่มโปรเจกต์</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 3. รายการโปรเจกต์ พร้อมลบ -->
+    <section>
+      <h2 class="h4 mb-3">🗂️ รายการโปรเจกต์</h2>
+      <div class="list-group shadow-sm">
+        <% projects.forEach(proj=> { %>
+          <div class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <h5 class="mb-1">
+                <%= proj.name %>
+              </h5>
+              <small class="text-muted">
+                <%= proj.category %>
+              </small>
+            </div>
+
+            <form method="POST" action="/admin/projects/delete"
+              onsubmit="return confirm('ยืนยันลบโปรเจกต์ <%= proj.name %> ?');">
+              <a href="/admin/projects/edit/<%= proj.id %>" class="btn btn-sm btn-outline-primary">
+                แก้ไข
+              </a>
+              <input type="hidden" name="id" value="<%= proj.id %>" />
+              <button class="btn btn-danger btn-sm">ลบ</button>
+            </form>
+          </div>
+          <% }) %>
+      </div>
+    </section>
+
+
+    <!-- 1. แก้ไขข้อความ -->
+    <section class="mb-5">
+      <h2 class="h4 mb-3">🔧 แก้ไขข้อความ</h2>
+      <% contents.forEach(item=> { %>
+        <form class="card card-body mb-3 shadow-sm" method="POST" action="/admin/update">
+          <input type="hidden" name="id" value="<%= item.id %>">
+          <div class="mb-2">
+            <label class="form-label fw-bold">
+              <%= item.page %> / <%= item.section %>
+            </label>
+            <textarea class="form-control" name="text" rows="3"><%= item.text %></textarea>
+          </div>
+          <button class="btn btn-success">บันทึก</button>
+        </form>
+        <% }) %>
+    </section>
+
+
+
+
+
+  </div>
+
+  <!-- Bootstrap JS (optional, ถ้าต้องการ interactive components อื่นๆ) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

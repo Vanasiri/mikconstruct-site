@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta name="keywords"
+        content="รับเหมาก่อสร้าง, BIM, รับสร้างบ้าน, วิศวกรควบคุม, บริษัทรับเหมา, แบบก่อสร้าง, MIK CONSTRUCT, Mik Construct, แบบ 3D, รีโนเวตโรงงาน">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mikconstruct.com/">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/logo_icon.jpg" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "MIK CONSTRUCT Co., Ltd.",
+      "url": "https://mikconstruct.com",
+      "logo": "https://mikconstruct.com/img/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/adminmikbuilding"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+66-96-282-6664",
+        "contactType": "customer service",
+        "areaServed": "TH",
+        "availableLanguage": "Thai"
+      }
+    }
+  </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1200" />
+    <title>MIK CONSTRUCT | Contact</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/contact.css" />
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2EJE72E0QX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2EJE72E0QX');
+    </script>
+
+</head>
+
+<body>
+
+    <header class="hero-header">
+        <div class="container flex between center">
+            <a href="/" class="logo"><img src="/img/logo.png" alt="MIK-Con Logo" /></a>
+            <button class="hamburger" id="hamburger-btn">
+                ☰
+            </button>
+
+            <!-- เมนูด้านบนขวา -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="flex menu-list">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/projects.html">PROJECT</a></li>
+                    <li><a href="/blog.html">BLOG</a></li>
+                    <li><a href="/services.html">SERVICE</a></li>
+                    <li><a href="/about.html">ABOUT</a></li>
+                    <li><a href="/contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-hero">
+            <h1>CONTACT US</h1>
+            <h2>สอบถามบริการหรือติดต่อร่วมงานกับเรา</h2>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-info">
+        <div class="container flex contact-container">
+            <!-- รูปภาพ/ไอคอนด้านซ้าย -->
+            <div class="contact-image fade-in-left">
+                <img src="/img/contact/h2.PNG" alt="ทีมงาน MIK-Con" />
+            </div>
+
+            <!-- รายละเอียดด้านขวา -->
+            <div class="contact-details fade-in-right">
+                <h2>Inquiries & Careers</h2>
+                <p id="tel"><strong>โทร:</strong> 096-282-6664</p>
+                <p id="email"><strong>อีเมล:</strong> mikconstruct1@gmail.com</p>
+                <!-- <p><strong>Line:</strong> @mikconstruck</p> -->
+                <p><strong>Facebook: </strong><a class="contact-details-facebook"
+                        href="https://www.facebook.com/adminmikbuilding">MIK CONSTRUCT</a></p>
+
+                <h2>สำนักงานใหญ่</h2>
+                <p>31/84 หมู่ที่ 1 ต.บางใหญ่ อ.บางใหญ่ จ.นนทบุรี 11140</p>
+
+                <h2>สาขา</h2>
+                <p>26/10 หมู่ที่ 5 ต.ระแหง อ.ลาดหลุมแก้ว จ.ปทุมธานี 12140</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Map -->
+    <section class="contact-map fade-in-up">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3893.1234567890123!2d100.4106667!3d14.067074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e263bf8bc7808f%3A0xdff59714ac738932!2z4Lia4LmJ4Liy4LiKIOC4reC4nuC4oeC4suC4meC4q-C4uOC4suC4o-C4peC4suC4mQ!5e0!3m2!1sth!2sth!4v1710000000000!5m2!1sth!2sth"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container center">
+            © 2025 MIK CONSTRUCT Co., Ltd.
+        </div>
+    </footer>
+
+    <script>
+        const elements = document.querySelectorAll(
+            '.fade-in-left, .fade-in-right, .fade-in-up, .fade-hero'
+        );
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target); // ทำครั้งเดียว
+                }
+            });
+        }, { threshold: 0.3 });
+
+        elements.forEach(el => observer.observe(el));
+    </script>
+
+    <script>
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const nav = document.getElementById("main-nav");
+
+        hamburgerBtn.addEventListener("click", () => {
+            nav.classList.toggle("open");
+        });
+
+        // ปิดเมนูเมื่อคลิกลิงก์
+        document.querySelectorAll(".main-nav a").forEach(link => {
+            link.addEventListener("click", () => {
+                nav.classList.remove("open");
+            });
+        });
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/684e7ed939b70919105efd3a/1itp9v0nd';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <script>
+        // โหลดข้อความ
+        fetch("/api/content?page=contact")
+            .then(res => res.json())
+            .then(data => {
+                data.forEach(({ section, text }) => {
+                    const el = document.getElementById(section);
+                    if (el) el.innerHTML = text;
+                });
+            });
+    </script>
+
+    <script>
+        fetch("/api/images?page=contact")
+            .then(res => res.json())
+            .then(data => {
+                const hero = document.querySelector(".contact-hero");
+                const item = data.find(i => i.section === "hero");
+                if (item && hero) {
+                    hero.style.backgroundImage = `url('${item.path}')`;
+                }
+            })
+            .catch(err => console.error("โหลดรูป Contact Hero ผิดพลาด:", err));
+    </script>
+
+</body>
+
+</html>

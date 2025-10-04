@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>BLOG | MIK CONSTRUCT</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/blog.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/logo_icon.jpg" />
+</head>
+
+<body>
+    <header class="hero-header">
+        <div class="container flex between center">
+            <a href="/" class="logo"><img src="/img/logo.png" alt="MIK-Con Logo" /></a>
+            <button class="hamburger" id="hamburger-btn">☰</button>
+            <nav class="main-nav" id="main-nav">
+                <ul class="flex menu-list">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/projects.html">PROJECT</a></li>
+                    <li><a href="/blog.html">BLOG</a></li>
+                    <li><a href="/services.html">SERVICE</a></li>
+                    <li><a href="/about.html">ABOUT</a></li>
+                    <li><a href="/contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container py-5" style="margin-top: 80px;">
+        <h1 class="section-title">บทความ & ข่าวสาร</h1>
+        <div id="blog-list"></div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container center">
+            © 2025 MIK CONSTRUCT Co., Ltd.
+        </div>
+    </footer>
+
+    <script>
+        fetch("/api/blogs")
+            .then(res => res.json())
+            .then(posts => {
+                const list = document.getElementById("blog-list");
+                posts.forEach(post => {
+                    const item = document.createElement("div");
+                    item.className = "blog-list-item";
+                    item.innerHTML = `
+            <div class="blog-image">
+              <img src="${post.images && post.images[0] ? post.images[0].image_path : '/img/default.jpg'}" alt="${post.title}">
+            </div>
+            <div class="blog-text">
+              <h2>${post.title}</h2>
+              <p>${post.excerpt}</p>
+              <a href="/blog-detail.html?id=${post.id}" class="btn-read">อ่านต่อ →</a>
+            </div>
+          `;
+                    list.appendChild(item);
+                });
+            })
+            .catch(err => console.error("Error:", err));
+
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const nav = document.getElementById("main-nav");
+        hamburgerBtn.addEventListener("click", () => nav.classList.toggle("open"));
+        document.querySelectorAll(".main-nav a").forEach(link => {
+            link.addEventListener("click", () => nav.classList.remove("open"));
+        });
+    </script>
+</body>
+
+</html>

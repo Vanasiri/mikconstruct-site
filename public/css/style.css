@@ -1,0 +1,808 @@
+/* ────────────────────────────────────────────────────────────────────────────────────── */
+/*  CSS พื้นฐาน + Reset เบา ๆ  */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* overflow-x: hidden; */
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    /* ดีฟอลต์เป็นขาว เพราะพื้นหลัง Hero มืด */
+    line-height: 1.5;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ───────────────────────── Container & Utility ───────────────────────────────────────── */
+:root {
+    --primary: #ff3c00;
+    --light-text: #ffffff;
+    --dark-overlay: rgba(0, 0, 0, 0.6);
+    --font-large: 3rem;
+    --font-medium: 1.5rem;
+    --max-width: 1200px;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.between {
+    justify-content: space-between;
+}
+
+.center {
+    align-items: center;
+}
+
+.menu-list li {
+    margin-left: 2rem;
+    /* ระยะห่างระหว่างเมนู */
+}
+
+/* ───────────────────────── Header (ซ้อนบน Hero) ───────────────────────────────────────── */
+.hero-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 10;
+    background: #0000007c;
+    /* ให้อยู่เหนือภาพ Hero */
+}
+
+/* โลโก้ด้านซ้าย */
+.logo img {
+    height: 40px;
+    /* ปรับขนาดโลโก้ตามต้องการ */
+    object-fit: contain;
+}
+
+/* เมนูด้านบนขวา */
+.main-nav .menu-list li a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--light-text);
+    transition: color 0.2s;
+}
+
+.main-nav .menu-list li a:hover {
+    color: var(--primary);
+}
+
+
+/* ───────────── HAMBURGER BASE ───────────── */
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 11;
+}
+
+
+/* ───────────────────────── Hero Section ───────────────────────────────────────────────── */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* เต็มจอแนวตั้ง */
+    /* background-image: url('/img/hero.jpg'); */
+    /* background-image: url('/img/hero_index.PNG'); */
+    /* เปลี่ยนเป็นพาธรูปของคุณ */
+    background: #333;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Overlay ด้านบนรูป */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-overlay);
+    z-index: 5;
+    /* ให้อยู่เหนือ Hero Image แต่ต่ำกว่า header+content */
+}
+
+/* เนื้อหาข้อความตรงกลาง */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    /* ให้อยู่เหนือ overlay */
+}
+
+.hero-content h1.hero-title {
+    font-size: var(--font-large);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.hero-content h2.hero-description {
+    font-size: var(--font-medium);
+    font-weight: 400;
+}
+
+/* ───────────────────────── Footer (ถ้ามี) ─────────────────────────────────────────────── */
+.site-footer {
+    background-color: #222;
+    text-align: center;
+    padding: 1rem 0;
+    color: #bbb;
+    font-size: 0.9rem;
+}
+
+/* ───────────────────────── Responsive (ปรับย่อจอมือถือ/แท็บเล็ต) ───────────────────────── */
+@media (max-width: 768px) {
+
+    .hamburger {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .hero-header {
+        z-index: 20;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        display: none;
+        text-align: center;
+        z-index: 10;
+    }
+
+    .main-nav.open {
+        display: block;
+    }
+
+    .main-nav .menu-list {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 0;
+    }
+
+    .main-nav .menu-list li {
+        margin-left: 0;
+    }
+
+    .main-nav .menu-list li a {
+        font-size: 1.2rem;
+        color: white;
+    }
+}
+
+
+
+/* ─────────────────────────────────────────────────────────────────── */
+/* 1) ABOUT US SECTION */
+.about-us {
+    padding: 4rem 0;
+    background-color: #fff;
+    color: #222;
+}
+
+.about-container {
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text .small-title {
+    color: #ff3c00;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+
+
+.about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────────────────────────── */
+/* 2) SERVICES SECTION (ฉบับแก้ไขใหม่ มี 4 การ์ด) */
+.services {
+    padding: 2rem 0;
+    /* เว้นช่องว่างบน-ล่าง */
+    background-color: #fff;
+    /* พื้นหลังสีขาว เพื่อให้ตัวหนังสือดำอ่านเห็นชัด */
+    color: #222;
+    /* กำหนดตัวหนังสือเป็นสีเข้ม (ถูก override ใน card-content) */
+}
+
+.service-cards {
+    display: flex;
+    gap: 1rem;
+    /* flex-wrap: nowrap; */
+    flex-wrap: wrap;
+    /* เรียง 4 ใบในแถวเดียวบน Desktop */
+}
+
+/* ─── Service Card พื้นฐาน ─────────────────────────────────────────── */
+.service-card {
+    position: relative;
+    flex: 1 1 270px;
+    /* ให้แต่ละการ์ดขยายเท่ากัน */
+    height: 500px;
+    /* ปรับความสูงตามดีไซน์ (บน Desktop) */
+    border-radius: 8px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+
+.service-card.card-1 {
+    position: relative;
+}
+
+/* ─── Card 1: ภาพล้วน ไม่มี Overlay / ไม่มีเนื้อหา ───────────────── */
+.card-1 {
+    background-image: url('/img/index/h2.PNG');
+    /* เปลี่ยนเป็นพาธภาพจริง */
+}
+
+.card-1 .card-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.card-1 .card-overlay.color-dark {
+    background-color: rgba(14, 41, 71, 0.4);
+    /* สีน้ำเงินกรมท่าเข้ม 85% */
+}
+
+
+/* ─── Card 2: Overlay สีน้ำเงินกรมท่า + เนื้อหา ───────────────────── */
+.card-2 {
+    background-image: url('/img/index/h5.PNG');
+    /* เปลี่ยนเป็นพาธภาพจริง */
+}
+
+.card-2 .card-overlay {
+    position: absolute;
+    inset: 0;
+    /* top:0; right:0; bottom:0; left:0; */
+}
+
+.card-2 .card-overlay.color-blue {
+    background-color: rgba(14, 42, 71, 0.8);
+    /* สีน้ำเงินกรมท่า 80% */
+}
+
+.card-2 .card-content {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    color: #fff;
+    /* ให้ข้อความใน Card 2 เป็นสีขาว */
+    z-index: 5;
+}
+
+/* ─── Card 3: Overlay สีส้มเข้ม + เนื้อหา ─────────────────────────── */
+.card-3 {
+    background-image: url('/img/index/h6.PNG');
+    /* เปลี่ยนเป็นพาธภาพจริง */
+}
+
+.card-3 .card-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.card-3 .card-overlay.color-orange {
+    background-color: rgba(255, 60, 0, 0.8);
+    /* สีส้มเข้ม 80% */
+}
+
+.card-3 .card-content {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    color: #fff;
+    /* ให้ข้อความใน Card 3 เป็นสีขาว */
+    z-index: 5;
+}
+
+/* ─── Card 4: Overlay ทึบน้ำเงินเข้ม + เนื้อหา ─────────────────────── */
+.card-4 {
+    background-image: url('/img/index/h7.PNG');
+    /* เปลี่ยนเป็นพาธภาพจริง */
+}
+
+.card-4 .card-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.card-4 .card-overlay.color-dark {
+    background-color: rgba(14, 42, 71, 0.85);
+    /* สีน้ำเงินกรมท่าเข้ม 85% */
+}
+
+.card-4 .card-content {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    color: #fff;
+    /* ให้ข้อความใน Card 4 เป็นสีขาว */
+    z-index: 5;
+}
+
+/* ─── เนื้อหา (Content) ร่วมของ Card 2, 3, 4 ──────────────────────── */
+.card-content h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.card-content .subtext {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+/* ─── ปุ่มลูกศร (→) ───────────────────────────────────────────────── */
+.btn-card-arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    color: #fff;
+    background: #e63300;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn-card-arrow:hover {
+    background-color: rgb(14, 41, 71);
+}
+
+/* ─────────────────────────────────────────────────────────────────── */
+/* Media Queries (ปรับสำหรับหน้าจอ ≤ 992px) */
+
+
+/* ─────────────────────────────────────────────────────────────────── */
+/* 3) STATISTICS / COUNTERS SECTION */
+.stats {
+    background-color: #ff3c00;
+    padding: 3rem 0;
+    color: #fff;
+}
+
+.stats-container {
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 1rem;
+}
+
+.stat-divider {
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: 0 1rem;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────── */
+/* 4) PROJECTS SECTION (เลย์เอาต์ตามภาพล่าสุด) */
+
+/* ----- 1. สไตล์ทั่วไปของ Section ----- */
+.projects-section {
+    padding: 40px 20px;
+    background-color: #ffffff;
+}
+
+/* Header Title */
+.projects-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.projects-header .small-title {
+    color: #F97316;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.projects-header .section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111111;
+    margin: 0;
+}
+
+/* ----- 2. Grid Layout ----- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 200px;
+    gap: 16px;
+}
+
+/* รูปด้านซ้าย (span 2 แถว) */
+.project-item.item-large {
+    grid-column: 1 / 2;
+    grid-row: 1 / span 2;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* รูปกลางบน */
+.project-item:nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* รูปขวาบน */
+.project-item:nth-child(3) {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* ปุ่ม All Project (กลางล่าง) */
+.project-item.project-all {
+    position: relative;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    overflow: hidden;
+    border-radius: 8px;
+    background-image: url('/img/index/h8.PNG');
+    background-size: cover;
+    background-position: center center;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+/* ----- 3. รูปในแต่ละ .project-item ----- */
+.project-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+/* ----- 4. สไตล์ Overlay และ Button ของ All Project ----- */
+.project-item.project-all .project-all-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 42, 71, 0.6);
+    z-index: 1;
+}
+
+.project-item.project-all .project-all-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+}
+
+.project-item.project-all .project-all-content p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.project-item.project-all .btn-all {
+    display: inline-block;
+    margin-top: 12px;
+    background-color: #F97316;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1;
+    padding: 10px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+/* ----- 5. Responsive สำหรับหน้าจอเล็ก (มือถือ) ----- */
+
+
+
+
+/* ─────────────────────────────────────────────────────────────────── */
+/* 5) CLIENTS SECTION */
+.clients {
+    padding: 4rem 0;
+    background-color: #fff;
+    color: #222;
+}
+
+.clients-header .small-title {
+    color: #ff3c00;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.clients-header h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Grid โลโก้ลูกค้า */
+.clients-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    /* จัดกลางแนวตั้ง */
+    justify-content: center;
+    /* จัดกลางแนวนอน */
+}
+
+.client-logo {
+    width: 200px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    /* จัดกลางแนวตั้ง */
+    justify-content: center;
+    /* จัดกลางแนวนอน */
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.client-logo img {
+    max-width: 140px;
+    max-height: 80px;
+    object-fit: contain;
+    /* filter: grayscale(100%); */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+
+.client-logo:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.client-logo {
+    width: 180px;
+    height: 100px;
+    border-radius: 8px;
+    background-color: #0e2a47;
+    /* สีแทนโลโก้จริง */
+}
+
+/* สลับสีแต่ละอันเพื่อให้ดูแตกต่าง (ถ้ามีโลโก้จริงให้เปลี่ยนเป็นภาพหรือ background-image) */
+.logo-1 {
+    /* background-color: #0e2a47; */
+    background-color: #0e294700;
+}
+
+.logo-2 {
+    /* background-color: #ff3c00; */
+    background-color: #0e294700;
+}
+
+.logo-3 {
+    /* background-color: #0e2a47; */
+    background-color: #0e294700;
+}
+
+.logo-4 {
+    /* background-color: #ff3c00; */
+    background-color: #0e294700;
+}
+
+.logo-5 {
+    /* background-color: #0e2a47; */
+    background-color: #0e294700;
+}
+
+.logo-6 {
+    /* background-color: #ff3c00; */
+    background-color: #0e294700;
+}
+
+.logo-7 {
+    /* background-color: #ff3c00; */
+    background-color: #0e294700;
+}
+
+.logo-8 {
+    background-color: #0e294700;
+}
+
+.logo-8 img {
+    border-radius: 8px;
+}
+
+
+
+
+/* ─────────────────────────────────────────────────────────────────── */
+/* 6) CONTACT / MAP SECTION */
+.contact-map {
+    background-color: #f9f9f9;
+    padding: 4rem 0;
+}
+
+.contact-header .small-title {
+    color: #ff3c00;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.contact-header .big-title {
+    color: #000000;
+}
+
+
+.contact-header h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* ─────────────────────────────────────────────────────────────────── */
+/* Media Queries / Responsive */
+
+/* ───── Hero Animation ───── */
+.fade-hero {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    will-change: opacity, transform;
+}
+
+.fade-hero.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Scroll Animation */
+.fade-in,
+.fade-in-left,
+.fade-in-right,
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-left {
+    transform: translateX(-40px);
+}
+
+.fade-in-right {
+
+    transform: translateX(40px);
+}
+
+.fade-in-up {
+    transform: translateY(40px);
+}
+
+.show {
+    opacity: 1;
+    transform: translate(0, 0);
+}

@@ -1,0 +1,136 @@
+/* Blog List */
+.blog-list-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background: #fff;
+    margin-bottom: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-list-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.blog-list-item .blog-image {
+    flex: 1 1 350px;
+    min-width: 300px;
+    max-width: 450px;
+    overflow: hidden;
+}
+
+.blog-list-item .blog-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.blog-list-item .blog-text {
+    flex: 2 1 400px;
+    padding: 2rem;
+}
+
+.blog-list-item .blog-text h2 {
+    margin-top: 0;
+	margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #222;
+}
+
+.blog-list-item .blog-text p {
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.btn-read {
+    display: inline-block;
+    background-color: #ff3c00;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn-read:hover {
+    background-color: #101d8f;
+}
+
+/* Blog Detail */
+/* Container one column */
+.blog-detail-container.blog-full {
+    display: block;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Main content */
+.blog-main img.blog-top-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+}
+
+.blog-main h1 {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #ff3c00;
+}
+
+.blog-main p {
+    line-height: 1.8;
+    color: #333;
+}
+
+.btn-read {
+    display: inline-block;
+    background-color: #ff3c00;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 2rem;
+    transition: background 0.3s ease;
+}
+
+.btn-read:hover {
+    background-color: #101d8f;
+}
+
+.blog-main {
+    margin-top: 80px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-footer {
+    margin-top: auto;
+}
+
+.blog-swiper {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.blog-swiper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

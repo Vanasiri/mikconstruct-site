@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta name="keywords"
+        content="รับเหมาก่อสร้าง, BIM, รับสร้างบ้าน, วิศวกรควบคุม, บริษัทรับเหมา, แบบก่อสร้าง, MIK CONSTRUCT, Mik Construct, แบบ 3D, รีโนเวตโรงงาน">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mikconstruct.com/">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/logo_icon.jpg" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "MIK CONSTRUCT Co., Ltd.",
+      "url": "https://mikconstruct.com",
+      "logo": "https://mikconstruct.com/img/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/adminmikbuilding"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+66-96-282-6664",
+        "contactType": "customer service",
+        "areaServed": "TH",
+        "availableLanguage": "Thai"
+      }
+    }
+  </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1200" />
+    <title>MIK CONSTRUCT | Projects</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/projects.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2EJE72E0QX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2EJE72E0QX');
+    </script>
+
+
+</head>
+
+<body>
+
+    <header class="hero-header">
+        <div class="container flex between center">
+            <a href="/" class="logo"><img src="/img/logo.png" alt="MIK-Con Logo" /></a>
+            <button class="hamburger" id="hamburger-btn">
+                ☰
+            </button>
+
+            <!-- เมนูด้านบนขวา -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="flex menu-list">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/projects.html">PROJECT</a></li>
+                    <li><a href="/blog.html">BLOG</a></li>
+                    <li><a href="/services.html">SERVICE</a></li>
+                    <li><a href="/about.html">ABOUT</a></li>
+                    <li><a href="/contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <section class="projects-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-hero">
+            <h1>PROJECT GALLERY</h1>
+            <h2>รวมผลงานคุณภาพจากทีม MIK CONSTRUCT</h2>
+        </div>
+    </section>
+
+    <section class="experience">
+        <div class="container">
+            <h2>ประสบการณ์ของเรา</h2>
+            <p>
+                ผลงานของเราครอบคลุมทั้งอาคารพักอาศัยระดับบน อาคารพาณิชย์ และโรงงานอุตสาหกรรม
+                โดยใช้เทคนิคก่อสร้างเฉพาะทาง รองรับงานที่ต้องการโครงสร้างแข็งแรง และมีความซับซ้อนเชิงวิศวกรรม
+            </p>
+        </div>
+    </section>
+
+
+    <!-- <div id="project-container"></div> -->
+    <!-- <h4>ทดสอบ Static</h4>
+    <img src="/uploads/1750094112008.png" alt="Test Upload"> -->
+    <div id="project-container"></div>
+
+    <footer class="site-footer">
+        <div class="container center">
+            © 2025 MIK CONSTRUCT Co., Ltd.
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Animation
+        const cards = document.querySelectorAll('.project-card, .fade-hero');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('show');
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => observer.observe(card));
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+
+    <script>
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const nav = document.getElementById("main-nav");
+
+        hamburgerBtn.addEventListener("click", () => {
+            nav.classList.toggle("open");
+        });
+
+        // ปิดเมนูเมื่อคลิกลิงก์
+        document.querySelectorAll(".main-nav a").forEach(link => {
+            link.addEventListener("click", () => {
+                nav.classList.remove("open");
+            });
+        });
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/684e7ed939b70919105efd3a/1itp9v0nd';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("/api/projects")
+                .then(res => res.json())
+                .then(data => {
+                    const container = document.getElementById("project-container");
+
+                    for (const [category, projects] of Object.entries(data)) {
+                        const section = document.createElement("section");
+                        section.className = "project-group";
+                        section.innerHTML = `
+          <div class="container">
+            <h3>${category}</h3>
+            <div class="grid">
+              ${projects.map((p, i) => `
+                <div class="project-card">
+                  <div class="swiper project-swiper swiper-${category}-${i}">
+                    <div class="swiper-wrapper">
+                      ${p.images.map(img => `
+                        <div class="swiper-slide">
+                          <a href="${img}" class="glightbox" data-gallery="${category}-${i}">
+                            <img src="${img}" alt="${p.name}">
+                          </a>
+                        </div>
+                      `).join("")}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div>
+                  <p>${p.name}</p>
+                </div>
+              `).join("")}
+            </div>
+          </div>`;
+                        container.appendChild(section);
+                    }
+
+                    // รอให้ element ถูกเพิ่มใน DOM แล้ว init Swiper + Lightbox
+                    requestAnimationFrame(() => {
+                        document.querySelectorAll('.project-swiper').forEach(swiperEl => {
+                            new Swiper(swiperEl, {
+                                loop: true,
+                                pagination: {
+                                    el: swiperEl.querySelector('.swiper-pagination'),
+                                    clickable: true,
+                                },
+                                autoHeight: true,          // ← เพิ่มตรงนี้
+                                // autoplay: { delay: 3000 },
+                                effect: 'fade',
+                                fadeEffect: { crossFade: true },
+                            });
+                        });
+                        GLightbox({ selector: '.glightbox' });
+                    });
+                })
+                .catch(err => console.error("โหลดโปรเจกต์ผิดพลาด:", err));
+        });
+    </script>
+
+    <script>
+        fetch("/api/images?page=projects")
+            .then(res => res.json())
+            .then(data => {
+                const hero = document.querySelector(".projects-hero");
+                const item = data.find(i => i.section === "hero");
+                if (item && hero) {
+                    hero.style.backgroundImage = `url('${item.path}')`;
+                }
+            })
+            .catch(err => console.error("โหลดรูป projects Hero ผิดพลาด:", err));
+    </script>
+
+
+</body>
+
+</html>

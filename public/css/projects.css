@@ -1,0 +1,127 @@
+.projects-hero {
+    /* fallback background ก่อนโหลดรูปจริง */
+    background: #333;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.projects-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.projects-hero .hero-content {
+    z-index: 2;
+    color: white;
+    text-align: center;
+}
+
+.projects-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.projects-hero h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+/* Experience section */
+.experience {
+    padding: 3rem 1rem;
+    background-color: #f9f9f9;
+    text-align: center;
+
+    color: #555;
+}
+
+.experience h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+.project-group {
+    padding: 2rem 1rem;
+}
+
+.project-group h3 {
+    font-size: 1.5rem;
+    color: #ff3c00;
+    margin-bottom: 1rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    /* grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); */
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.project-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    transform: translateY(30px);
+    /* opacity: 0; */
+    transition: all 0.6s ease-out;
+}
+
+.project-card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-card p {
+    padding: 1rem;
+    font-size: 0.95rem;
+    color: #333;
+    text-align: center;
+}
+
+.project-swiper {
+  width: 100%;
+  height: 220px;  
+  background: #eee; 
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.project-swiper img {
+  width: 100%;
+  height: 220px;  
+  object-fit: cover;
+  object-fit: cover;
+}
+
+/* ───── Hero Animation ───── */
+.fade-hero {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+    will-change: opacity, transform;
+}
+
+.fade-hero.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+

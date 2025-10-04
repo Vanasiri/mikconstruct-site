@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta name="keywords"
+        content="รับเหมาก่อสร้าง, BIM, รับสร้างบ้าน, วิศวกรควบคุม, บริษัทรับเหมา, แบบก่อสร้าง, MIK CONSTRUCT, Mik Construct, แบบ 3D, รีโนเวตโรงงาน">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mikconstruct.com/">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/logo_icon.jpg" />
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "MIK CONSTRUCT Co., Ltd.",
+      "url": "https://mikconstruct.com",
+      "logo": "https://mikconstruct.com/img/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/adminmikbuilding"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+66-96-282-6664",
+        "contactType": "customer service",
+        "areaServed": "TH",
+        "availableLanguage": "Thai"
+      }
+    }
+  </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1200" />
+    <title>MIK CONSTRUCT | Services</title>
+    <meta name="description"
+        content="บริการของเรา - MIK CONSTRUCT ให้บริการด้านการออกแบบ ก่อสร้าง และรีโนเวต ด้วยระบบ BIM">
+
+    <!-- ลิงก์ CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/service.css" />
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2EJE72E0QX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2EJE72E0QX');
+    </script>
+
+</head>
+
+<body>
+    <!-- ส่วน Header และเมนู -->
+    <header class="hero-header">
+        <div class="container flex between center">
+            <a href="/" class="logo">
+                <img src="/img/logo.png" alt="MIK-Con Logo" />
+            </a>
+            <button class="hamburger" id="hamburger-btn">
+                ☰
+            </button>
+
+            <!-- เมนูด้านบนขวา -->
+            <nav class="main-nav" id="main-nav">
+                <ul class="flex menu-list">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/projects.html">PROJECT</a></li>
+                    <li><a href="/blog.html">BLOG</a></li>
+                    <li><a href="/services.html">SERVICE</a></li>
+                    <li><a href="/about.html">ABOUT</a></li>
+                    <li><a href="/contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- HERO Section สำหรับ Services -->
+    <section class="hero hero-services">
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-hero">
+            <h1>OUR SERVICES</h1>
+            <h2>บริการก่อสร้างด้วยระบบ BIM</h2>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container services-header">
+            <p class="small-title" id="services-small-title"></p>
+            <h2 class="section-title" id="services-section-title"></h2>
+            <p class="section-subtitle" id="services-subtitle"></p>
+        </div>
+        <div class="service-cards" id="services-container"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container center">
+            © 2025 MIK CONSTRUCT Co., Ltd.
+        </div>
+    </footer>
+
+
+
+    <script>
+        const hamburgerBtn = document.getElementById("hamburger-btn");
+        const nav = document.getElementById("main-nav");
+
+        hamburgerBtn.addEventListener("click", () => {
+            nav.classList.toggle("open");
+        });
+
+        // ปิดเมนูเมื่อคลิกลิงก์
+        document.querySelectorAll(".main-nav a").forEach(link => {
+            link.addEventListener("click", () => {
+                nav.classList.remove("open");
+            });
+        });
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/684e7ed939b70919105efd3a/1itp9v0nd';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <script>
+        fetch("/api/images?page=services")
+            .then(res => res.json())
+            .then(data => {
+                const hero = document.querySelector(".hero-services");
+                const item = data.find(i => i.section === "hero");
+                if (item && hero) {
+                    hero.style.backgroundImage = `url('${item.path}')`;
+                }
+            })
+            .catch(err => console.error("โหลดรูป services Hero ผิดพลาด:", err));
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1) สร้าง IntersectionObserver
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            // 2) สังเกตการณ์ .fade-hero (static)
+            document.querySelectorAll(".fade-hero").forEach(el => observer.observe(el));
+
+            // 3) โหลดเนื้อหา services (หัวข้อ)
+            fetch("/api/content?page=services")
+                .then(r => r.json())
+                .then(data => {
+                    data.forEach(({ section, text }) => {
+                        const el = document.getElementById(section);
+                        if (el) el.innerHTML = text;
+                    });
+                });
+
+            // 4) โหลดการ์ดบริการแบบไดนามิก พร้อมสังเกตการณ์
+            fetch("/api/services")
+                .then(r => r.json())
+                .then(cards => {
+                    const container = document.getElementById("services-container");
+                    cards.forEach(c => {
+                        const div = document.createElement("div");
+                        div.className = "service-card fade-in-up";
+                        // ตั้ง background และจุดศูนย์กลาง
+                        div.style.backgroundImage = `url('${c.image_path}')`;
+                        div.style.backgroundSize = "cover";
+                        div.style.backgroundPosition = "center center";
+                        div.innerHTML = `
+        <div class="card-overlay" style="background-color: ${c.color};"></div>
+        <div class="card-content">
+          <h3>${c.title}</h3>
+          <p>${c.text}</p>
+        </div>`;
+                        container.append(div);
+                        observer.observe(div);
+                    });
+                });
+        });
+    </script>
+
+
+
+</body>
+
+</html>
